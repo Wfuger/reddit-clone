@@ -1,0 +1,27 @@
+a {
+  color: #00B7FF;
+}
+body {
+  font-family: 'Amaranth', sans-serif;
+  font-size: 1.5em;
+}
+.image {
+  height: 250px;
+  width: 250px;
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+#author {
+  float: right;
+  margin-right: 20px;
+}
+span {
+  cursor: pointer;
+}
+.push-right {
+  margin-left: 50px;
+}

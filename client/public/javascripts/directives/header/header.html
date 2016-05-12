@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">Reddit Clone</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a data-toggle="modal" data-target="#myModal" href="" ng-click="showPost()">
+                        <i class="glyphicon glyphicon-plus"></i> Submit Post</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="view.search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By
+                        {{ view.by }}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" ng-click="sorter('votes')">Votes</a>
+                        </li>
+                        <li>
+                            <a href="#" ng-click="sorter('date')">Date</a>
+                        </li>
+                        <li>
+                            <a href="#" ng-click="sorter('title')">Title</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

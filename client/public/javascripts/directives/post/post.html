@@ -1,0 +1,45 @@
+<div class="row well" ng-repeat="post in posts | orderBy : view.by : view.reverse | filter : view.search">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="image" src="{{post.image}}"/>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+
+                <h3>
+                    {{post.title}}
+                    |
+                    <span class="fa fa-arrow-down " aria-hidden="true" ng-click="vote('down', post)"></span>
+                    <span class="fa fa-arrow-up" aria-hidden="true" ng-click="vote('up', post)"></span>
+                    <span ng-class="{'positive':post.votes > 0, 'negative':post.votes < 0}" ng-bind="post.votes"></span>
+                </h3>
+                <p id="author">By:
+                    {{post.author}}</p>
+                <p ng-bind="post.description"></p>
+                <div class="row">
+                    <p>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span ng-bind="post.date"></span>
+                        |
+                        <span ng-click="showComments(post)" class="fa fa-comments"></span>
+                        <span ng-bind="post.comments.length"></span>
+                        |
+                        <span ng-click="addComment(post)">Add A Comment</span>
+                    </p>
+                    <div ng-show="post.showTheComments" ng-repeat="comment in post.comments" class="row">
+                        <p class="push-right" >Author: {{comment.author}}</p>
+                        <p class="push-right" >Comment: {{comment.comment}}</p>
+                    </div>
+                    <div ng-hide="post.newComment" class="row">
+                        <form class="form">
+                            <label>Author</label>
+                            <input type="text" ng-model="makeNewComment.author">
+                            <label>Comment</label>
+                            <input type="text" ng-model="makeNewComment.comment">
+                            <button ng-click="comment(makeNewComment, post)" type="submit" class="btn btn-primary">Add Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
