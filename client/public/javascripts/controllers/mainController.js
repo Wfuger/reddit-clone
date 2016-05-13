@@ -1,4 +1,8 @@
-app.controller('mainController', ['$scope', function($scope) {
+app.controller('mainController', ['$scope', 'postService', function($scope, postService) {
+        postService.getAllPosts().then(function(response){
+            $scope.posts = response.posts;
+            console.log('this would be cool if it works', $scope.posts);
+        });
         $scope.view = {};
         $scope.makeNewComment = {};
         $scope.view.createPost = false;
@@ -32,41 +36,7 @@ app.controller('mainController', ['$scope', function($scope) {
         $scope.vote = function(vote, post) {
             return vote === 'up' ? post.votes++ : post.votes--;
         };
-        $scope.posts = [{
-            title: 'Unique New York',
-            votes: 0,
-            author: 'Yo momma',
-            image: 'http://www.fillmurray.com/200/300',
-            description: '',
-            date: moment().calendar(),
-            comments: [],
-            newComment: true,
-            showTheComments: false
-        }, {
-            title: 'Bill Freaking Murray',
-            votes: 10,
-            author: 'That One Guy',
-            image: 'http://www.fillmurray.com/200/302',
-            description: 'Is that Bill Murray?  Golf course it is.',
-            date: moment().calendar(),
-            comments: [],
-            newComment: true,
-            showTheComments: false
-        }, {
-            title: 'More Bill Effing Murray',
-            votes: 5,
-            author: 'Some Dude',
-            image: 'http://www.fillmurray.com/200/303',
-            description: 'The coolest man alive',
-            date: moment().calendar(),
-            comments: [{
-                author: 'Yo momma',
-                comment: 'comment 1'
-            }
-            ],
-            newComment: true,
-            showTheComments: false
-        }];
+
         $scope.showComments = function(post) {
             post.showTheComments = !post.showTheComments;
         }

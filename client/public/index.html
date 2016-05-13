@@ -10,21 +10,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
     <script type="text/javascript" src="javascripts/app.js"></script>
-    <script type="text/javascript" src="javascripts/router.js"></script>
-    <script type="text/javascript" src="javascripts/controllers/mainController.js"></script>
     <script type="text/javascript" src="javascripts/directives/header/header.js"></script>
     <script type="text/javascript" src="javascripts/directives/newPostModal/newPostModal.js"></script>
     <script type="text/javascript" src="javascripts/directives/post/post.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="javascripts/services/postService.js"></script>
+    <script type="text/javascript" src="javascripts/controllers/mainController.js"></script>
+    <script type="text/javascript" src="javascripts/router.js"></script>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Amaranth' type='text/css'>
 </head>
 <body ng-controller="mainController">
-<my-header></my-header>
+<rdt-header></rdt-header>
 <main class="container">
     <ui-view></ui-view>
 </main>
