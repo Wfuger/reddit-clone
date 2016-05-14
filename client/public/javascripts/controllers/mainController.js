@@ -1,26 +1,31 @@
 app.controller('mainController', ['$scope', 'postService', function($scope, postService) {
         postService.getAllPosts().then(function(response){
             $scope.posts = response.posts;
-            console.log('this would be cool if it works', $scope.posts);
+            //console.log('this would be cool if it works', $scope.posts);
         });
         $scope.view = {};
         $scope.makeNewComment = {};
-        $scope.view.createPost = false;
+        $scope.newPost = {};
+        $scope.view.createPost = true;
         $scope.view.by = 'votes';
         $scope.view.reverse = true;
         $scope.showPost = function() {
             $scope.view.createPost = !$scope.view.createPost;
+            console.log($scope.view.createPost)
         };
-        $scope.post = function() {
-            $scope.newPost.votes = 0;
-            $scope.newPost.date = moment().calendar();
-            $scope.newPost.showTheComments = false;
-            $scope.newPost.newComment = true;
-            $scope.newPost.comments = [];
-            $scope.view.reverse = true;
-            $scope.posts.push($scope.newPost);
-            $scope.newPost = {};
-        };
+        $scope.post = function () {
+            postService.addPost($scope.newPost);
+        }
+            //function() {
+        //    $scope.newPost.votes = 0;
+        //    $scope.newPost.date = moment().calendar();
+        //    $scope.newPost.showTheComments = false;
+        //    $scope.newPost.newComment = true;
+        //    $scope.newPost.comments = [];
+        //    $scope.view.reverse = true;
+        //    $scope.posts.push($scope.newPost);
+        //    $scope.newPost = {};
+        //};
         $scope.addComment = function(post) {
             post.newComment = !post.newComment;
         };

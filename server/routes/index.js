@@ -3,12 +3,12 @@ var router = express.Router();
 var knex = require('../db/');
 
 /* GET home page. */
-router.get('/api/v1/getposts', function(req, res, next) {
+router.get('/getposts', function(req, res, next) {
   var result = {};
   knex('posts')
       .then(function(posts) {
           result.posts = posts;
-      })
+      });
   knex('comments')
       .then(function(comments) {
           result.comments = comments;
@@ -21,6 +21,14 @@ router.get('/api/v1/getposts', function(req, res, next) {
           delete result.comments;
           res.json(result);
       })
+});
+
+router.post('/post', function(req, res, next) {
+    console.log('Got to the server');
+    console.log('new post obj from server', req.body);
+    res.json({
+        'key': 'Stuff'
+    })
 });
 
 module.exports = router;
