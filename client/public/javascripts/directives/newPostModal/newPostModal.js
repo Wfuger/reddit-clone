@@ -5,6 +5,11 @@ app.directive('newPostModal', function () {
             scope.$on('createPost', function (event, data) {
                 scope.view.createPost = data;
             });
+
+            //setInterval(function () {
+            //    console.log(scope.view.createPost);
+            //
+            //}, 1000);
         }
     }
 });

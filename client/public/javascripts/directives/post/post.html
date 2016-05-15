@@ -15,7 +15,7 @@
                 </h3>
                 <p id="author">By:
                     {{post.author}}</p>
-                <p ng-bind="post.description"></p>
+                <p ng-bind="post.description"></p><button class="btn btn-danger" ng-click="deletePost(post.id)">X</button>
                 <div class="row">
                     <p>
                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -29,6 +29,7 @@
                     <div ng-show="post.showTheComments" ng-repeat="comment in post.comments" class="row">
                         <p class="push-right" >Author: {{comment.author}}</p>
                         <p class="push-right" >Comment: {{comment.comment}}</p>
+                        <button class="btn btn-danger" ng-click="deleteComment(comment.id)">X comment</button>
                     </div>
                     <div ng-show="post.newComment" class="row">
                         <form class="form">
