@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
         table.string('description', 1000);
         table.string('img_url');
         table.integer('votes');
-        table.timestamps();
+        table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
       });
 };
 

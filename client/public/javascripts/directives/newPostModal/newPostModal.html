@@ -1,17 +1,16 @@
-
 <div class="row">
     <form class="form" name="addPost" ng-submit="post()" ng-show="view.createPost">
         <div class="form-group" ng-class="{'has-error': addPost.title.$invalid, 'has-success': addPost.title.$valid}">
             <label for="title">Title</label>
             <input name="title" type="text" class="form-control" ng-minlength="4" ng-model="newPost.title">
         </div>
-        <div class="form-group">
-            <label for="author">Author</label>
-            <input name="author" type="text" class="form-control" ng-model="newPost.author">
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label for="author">Author</label>-->
+            <!--<input name="author" type="text" class="form-control" ng-model="newPost.author">-->
+        <!--</div>-->
         <div class="form-group">
             <label for="image">Image URL</label>
-            <input name="image" type="text" class="form-control" ng-model="newPost.image">
+            <input name="image" type="text" class="form-control" ng-model="newPost.img_url">
         </div>
         <div class="form-group">
             <label for="description">Description</label>

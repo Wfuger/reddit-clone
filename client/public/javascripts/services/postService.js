@@ -15,26 +15,30 @@
                     })
             },
             addPost: function (newPost) {
-
-                //console.log('inital newp',newPost);
                 newPost.votes = 0;
                 newPost.showTheComments = false;
                 newPost.newComment= true;
-                console.log('newP sent to server',newPost);
-                return $http.post('http://localhost:3000/api/v1/post', newPost)
+                return $http.post('/api/v1/post', newPost)
                     .then(function (result) {
+                        console.log(result.data[0]);
                         return result;
                     })
             },
-            vote: function(d, postId) {
+            addComment: function (newComment, postId) {
+                newComment.post_id = postId;
+                return $http.post('/api/v1/comments/add/', newComment)
+                    .then(function(result) {
+                        console.log(result)
+                    })
+            },
+            vote: function(d, post) {
                 if (d === 'up') {
-                    return $http.post('/ap1/v1/posts/' + postId + '/vote/up')
+                    return $http.post('/api/v1/posts/' + post.id + '/vote/up', post)
                         .then(function(result) {
                             return result;
                         })
-
                 } else {
-                    return $http.post('/ap1/v1/posts/' + postId + '/vote/down')
+                    return $http.post('/api/v1/posts/' + post.id + '/vote/down', post)
                         .then(function(result) {
                             return result;
                         })

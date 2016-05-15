@@ -19,7 +19,7 @@
                 <div class="row">
                     <p>
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <span ng-bind="post.date"></span>
+                        <span ng-bind="post.created_at | date"></span>
                         |
                         <span ng-click="showComments(post)" class="fa fa-comments"></span>
                         <span ng-bind="post.comments.length"></span>
@@ -30,13 +30,13 @@
                         <p class="push-right" >Author: {{comment.author}}</p>
                         <p class="push-right" >Comment: {{comment.comment}}</p>
                     </div>
-                    <div ng-hide="post.newComment" class="row">
+                    <div ng-show="post.newComment" class="row">
                         <form class="form">
-                            <label>Author</label>
-                            <input type="text" ng-model="makeNewComment.author">
+                            <!--<label>Author</label>-->
+                            <!--<input type="text" ng-model="makeNewComment.author">-->
                             <label>Comment</label>
                             <input type="text" ng-model="makeNewComment.comment">
-                            <button ng-click="comment(makeNewComment, post)" type="submit" class="btn btn-primary">Add Comment</button>
+                            <button ng-click="newComment(makeNewComment, post)" type="submit" class="btn btn-primary">Add Comment</button>
                         </form>
                     </div>
                 </div>
