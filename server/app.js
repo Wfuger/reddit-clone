@@ -25,7 +25,7 @@ app.use('/api/v1', routes);
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {
-    root: __dirname + '/client/'
+    root: 'client/public/'
   });
 });
 

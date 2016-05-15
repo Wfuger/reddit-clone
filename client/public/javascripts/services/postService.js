@@ -6,8 +6,7 @@
             getAllPosts: function() {
                 return $http.get('/api/v1/post')
                     .then(function(result){
-                        console.log("got something")
-                        return result.data;
+                        return  result.data;
                     })
                     .catch(function(e){
                         console.log("error from get/posts", e)

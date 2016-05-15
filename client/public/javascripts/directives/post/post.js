@@ -5,6 +5,7 @@ app.directive('post', function(){
            scope.$on('newPost', function (event, data) {
                 console.log("data  from directive", data);
                 scope.posts = data;
+                //scope.$apply();
            });
        }
    }
