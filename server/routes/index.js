@@ -24,11 +24,8 @@ router.get('/getposts', function(req, res, next) {
 });
 
 router.post('/post', function(req, res, next) {
-    delete req.body.newComment;
-    delete req.body.showTheComments;
     return knex('posts').insert(req.body).returning('*')
         .then(function(posts){
-            //console.log(posts);
             res.json(posts)
         });
 });
@@ -43,7 +40,10 @@ router.post('/posts/:id/vote/:d', function (req, res, next) {
 });
 
 router.post('/comments/add/', function (req, res, next) {
-   console.log(req.body)
+    return knex('comments').insert(req.body).returning('*')
+        .then(function (comment) {
+            res.json(comment)
+        })
 });
 
 module.exports = router;

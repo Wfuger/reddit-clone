@@ -16,12 +16,9 @@
             },
             addPost: function (newPost) {
                 newPost.votes = 0;
-                newPost.showTheComments = false;
-                newPost.newComment= true;
                 return $http.post('/api/v1/post', newPost)
                     .then(function (result) {
-                        console.log(result.data[0]);
-                        return result;
+                        return result.data[0];
                     })
             },
             addComment: function (newComment, postId) {
@@ -35,12 +32,12 @@
                 if (d === 'up') {
                     return $http.post('/api/v1/posts/' + post.id + '/vote/up', post)
                         .then(function(result) {
-                            return result;
+                            return result.data[0];
                         })
                 } else {
                     return $http.post('/api/v1/posts/' + post.id + '/vote/down', post)
                         .then(function(result) {
-                            return result;
+                            return result.data[0];
                         })
                 }
             },

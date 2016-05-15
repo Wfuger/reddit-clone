@@ -1,8 +1,12 @@
 app.controller('mainController', ['$scope', 'postService', function($scope, postService) {
-        postService.getAllPosts().then(function(response){
-            $scope.posts = response.posts;
-        });
+        postService.getAllPosts()
+            .then(function(response){
+                response.posts.forEach(function(i){
+                    $scope.posts.push(i);
+                });
+            });
         $scope.view = {};
+        $scope.posts = [];
         $scope.makeNewComment = {};
         $scope.newPost = {};
         $scope.view.createPost = false;
@@ -17,7 +21,10 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
             console.log($scope.view.createPost)
         };
         $scope.post = function () {
-            postService.addPost($scope.newPost);
+            postService.addPost($scope.newPost)
+                .then(function (newPost) {
+                    $scope.posts.push(newPost);
+                });
         };
 
         $scope.addComment = function(post) {
@@ -25,8 +32,10 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
         };
         $scope.newComment = function(comment, post) {
             var postId = post.id;
-            //post.comments.push(comment);
-            postService.addComment(comment, postId);
+            postService.addComment(comment, postId)
+                .then(function (newComment) {
+
+                });
             $scope.makeNewComment = {};
             post.newComment = true;
         };
@@ -36,6 +45,9 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
         };
         $scope.vote = function(vote, post) {
             postService.vote(vote, post)
+                .then(function (result) {
+
+                })
         };
         $scope.showComments = function(post) {
             post.showTheComments = !post.showTheComments;

@@ -4,14 +4,7 @@
     <list default="true" id="17848ee7-2e29-495b-8ce0-e6427707d57f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js" afterPath="$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/directives/header/header.html" afterPath="$PROJECT_DIR$/client/public/javascripts/directives/header/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/directives/header/header.js" afterPath="$PROJECT_DIR$/client/public/javascripts/directives/header/header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.html" afterPath="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.js" afterPath="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/directives/post/post.html" afterPath="$PROJECT_DIR$/client/public/javascripts/directives/post/post.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/javascripts/services/postService.js" afterPath="$PROJECT_DIR$/client/public/javascripts/services/postService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/knexfile.js" afterPath="$PROJECT_DIR$/server/knexfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/migrations/20160512125848_posts.js" afterPath="$PROJECT_DIR$/server/migrations/20160512125848_posts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/index.js" afterPath="$PROJECT_DIR$/server/routes/index.js" />
     </list>
     <ignored path="reddit-clone.iws" />
@@ -45,41 +38,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.env">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/package.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.63192904">
-                  <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="postService.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/public/javascripts/services/postService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mainController.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="mainController.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+                <state vertical-scroll-proportion="0.58947366">
+                  <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -99,10 +62,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="post.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="post.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/public/javascripts/directives/post/post.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6984479">
+                <state vertical-scroll-proportion="-13.125">
                   <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
                   <folding />
                 </state>
@@ -113,17 +76,17 @@
             <entry file="file://$PROJECT_DIR$/server/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+                  <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="knexfile.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/knexfile.js">
+          <file leaf-file-name="postService.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/public/javascripts/services/postService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="7" column="40" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="40" />
+                <state vertical-scroll-proportion="0.7157895">
+                  <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
                   <folding />
                 </state>
               </provider>
@@ -164,12 +127,12 @@
         <option value="$PROJECT_DIR$/client/public/javascripts/directives/header/header.html" />
         <option value="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.html" />
         <option value="$PROJECT_DIR$/client/public/javascripts/directives/newPostModal/newPostModal.js" />
-        <option value="$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js" />
-        <option value="$PROJECT_DIR$/client/public/javascripts/services/postService.js" />
         <option value="$PROJECT_DIR$/server/migrations/20160512125848_posts.js" />
         <option value="$PROJECT_DIR$/server/knexfile.js" />
-        <option value="$PROJECT_DIR$/server/routes/index.js" />
         <option value="$PROJECT_DIR$/client/public/javascripts/directives/post/post.html" />
+        <option value="$PROJECT_DIR$/server/routes/index.js" />
+        <option value="$PROJECT_DIR$/client/public/javascripts/services/postService.js" />
+        <option value="$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js" />
       </list>
     </option>
   </component>
@@ -488,6 +451,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -613,14 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/migrations/20160512232644_comments.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4105263">
@@ -629,31 +585,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/javascripts/services/postService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/migrations/20160512125848_posts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -669,9 +601,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/knexfile.js">
+    <entry file="file://$PROJECT_DIR$/client/public/javascripts/directives/post/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/migrations/20160512125848_posts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/knexfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22105263">
           <caret line="7" column="40" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="40" />
           <folding />
         </state>
@@ -680,15 +636,23 @@
     <entry file="file://$PROJECT_DIR$/server/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/javascripts/directives/post/post.html">
+    <entry file="file://$PROJECT_DIR$/client/public/javascripts/services/postService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6984479">
-          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.7157895">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/javascripts/controllers/mainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58947366">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
           <folding />
         </state>
       </provider>
