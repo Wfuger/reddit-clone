@@ -34,8 +34,11 @@
                         console.log("error", e)
                     })
             },
-            addComment: function (newComment, postId) {
-                newComment.post_id = postId;
+            addComment: function (post) {
+                var newComment = {};
+                newComment.comment = post.comment;
+                newComment.post_id = post.id;
+                newComment.user_id = post.user_id;
                 return $http.post('/api/v1/comments/add/', newComment)
                     .then(function(result) {
                         return result.data[0];

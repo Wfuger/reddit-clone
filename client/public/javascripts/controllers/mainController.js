@@ -47,14 +47,14 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
     $scope.addComment = function(post) {
         post.newComment = !post.newComment;
     };
-    $scope.newComment = function(comment, post) {
-        var postId = post.id;
-        comment.user_id = $rootScope.user.id;
-        postService.addComment(comment, postId)
+    $scope.newComment = function(post) {
+        console.log($rootScope.user.id, "user obj bitch")
+        post.user_id = $rootScope.user.id;
+        postService.addComment(post)
             .then(function (newComment) {
                 post.comments.push(newComment);
             });
-        $scope.makeNewComment = {};
+        post.comment = null;
         post.newComment = false;
     };
     $scope.deleteComment = function (id, post) {

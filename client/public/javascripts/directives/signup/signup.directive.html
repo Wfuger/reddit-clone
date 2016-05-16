@@ -2,11 +2,11 @@
     <form class="form" name="signup" ng-submit="createUser()" >
         <div class="form-group" ng-class="{'has-error': signup.username.$invalid, 'has-success': signup.username.$valid}">
             <label for="username">Username</label>
-            <input name="username" type="text" class="form-control" ng-minlength="4" ng-model="user.username">
+            <input type="text" class="form-control" ng-minlength="4" ng-model="user.username">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input name="password" type="password" class="form-control" ng-model="user.password">
+            <input type="password" class="form-control" ng-model="user.password">
         </div>
         <button type="submit" class="btn btn-default">Create Account</button>
     </form>

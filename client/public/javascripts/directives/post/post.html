@@ -34,8 +34,8 @@
                     <div ng-show="post.newComment" class="row">
                         <form class="form">
                             <label>Comment</label>
-                            <input type="text" ng-model="makeNewComment.comment">
-                            <button ng-click="newComment(makeNewComment, post)" type="submit" class="btn btn-primary">Add Comment</button>
+                            <input type="text" ng-model="post.comment">
+                            <button ng-click="newComment(post)" type="submit" class="btn btn-primary">Add Comment</button>
                         </form>
                     </div>
                 </div>

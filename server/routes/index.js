@@ -57,6 +57,7 @@ router.post('/post', function(req, res, next) {
 });
 
 router.post('/comments/add/', function (req, res, next) {
+    console.log(req.body)
     return knex('comments').insert(req.body).returning('*')
         .then(function (comment) {
             console.log("comment: ",comment);
@@ -84,7 +85,7 @@ router.get('/users/me', function ( req, res, next ) {
         if (payload) {
             knex('users').where({ id: payload.id }).first().then(function(user){
                 if (user) {
-                    res.json({ id: user.id, username: user.username })
+                    res.json({ id: user.id, name: user.username })
                 } else {
                     res.json({ error: 'invalid ID' })
                 }
@@ -123,7 +124,7 @@ router.post('/users/signup', function (req, res, next) {
                             var token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
                             res.json({
                                 id: user.id,
-                                username: user.username,
+                                name: user.username,
                                 token: token
                             })
                         })
