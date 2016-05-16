@@ -1,10 +1,11 @@
-app.controller('mainController', ['$scope', 'postService', function($scope, postService) {
+app.controller('mainController', function($scope, postService, currentUser, $rootScope) {
     postService.getAllPosts()
         .then(function(response){
             response.posts.forEach(function(i){
                 $scope.posts.push(i);
             });
         });
+    $rootScope.user = currentUser;
     $scope.view = {};
     $scope.posts = [];
     $scope.makeNewComment = {};
@@ -16,28 +17,27 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
     $scope.$watch('view.createPost', function(newValue){
         $scope.$broadcast('createPost', newValue);
     });
-    $scope.$watch('posts', function (posts) {
-        console.log("posts from $watch muh fucka", posts);
-        $scope.$broadcast('newPost', posts)
-
-    }, true);
-    $scope.showPostForm = function() {
+    //$scope.$watch('posts', function (posts) {
+    //    console.log("posts from $watch muh fucka", posts);
+    //    $scope.$broadcast('newPost', posts)
+    //}, true);
+    $rootScope.showPostForm = function() {
         $scope.view.createPost = !$scope.view.createPost;
     };
     $scope.post = function () {
         postService.addPost($scope.newPost)
             .then(function (newPost) {
-                console.log("Adding new post to array");
+                //console.log("Adding new post to array");
                 $scope.posts.push(newPost);
             });
     };
 
     $scope.deletePost = function (post_id) {
-        //console.log(post_id)
         postService.deletePost(post_id)
             .then(function (result) {
-                console.log("delete post result: ", result)
-                //$scope.posts = result;
+                for (var i = 0; i < $scope.posts.length; i++) {
+                    if ($scope.posts[i].id === result.id) $scope.posts.splice(i, 1)
+                }
             });
     };
 
@@ -46,16 +46,20 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
     };
     $scope.newComment = function(comment, post) {
         var postId = post.id;
+        comment.user_id = $rootScope.user.id;
         postService.addComment(comment, postId)
             .then(function (newComment) {
+                post.comments.push(newComment);
             });
         $scope.makeNewComment = {};
-        post.newComment = true;
+        post.newComment = false;
     };
-    $scope.deleteComment = function (id) {
+    $scope.deleteComment = function (id, post) {
         postService.deleteComment(id)
             .then(function (result) {
-                console.log(result)
+                for (var i = 0; i < post.comments.length; ++i) {
+                    if (post.comments[i].id === id) post.comments.splice(i, 1)
+                }
             });
     };
     $scope.sorter = function(b) {
@@ -65,16 +69,17 @@ app.controller('mainController', ['$scope', 'postService', function($scope, post
     $scope.vote = function(vote, post) {
         postService.vote(vote, post)
             .then(function (result) {
-                console.log("booya", result);
-                $scope.posts.map(function (i) {
-                    console.log(i.id, result.id, "butt stuff");
-                    return i.id === result.id
-                        ? i.id = result.id
-                        : i
-                })
+                for (var i = 0; i < $scope.posts.length; i++) {
+                    if ($scope.posts[i].id === result.id) {
+                        var comments = $scope.posts[i].comments;
+                        result.comments = comments;
+                        $scope.posts.splice(i, 1);
+                        $scope.posts.push(result);
+                    }
+                }
             })
     };
     $scope.showComments = function(post) {
         post.showTheComments = !post.showTheComments;
     };
-}]);
+});

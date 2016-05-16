@@ -15,6 +15,7 @@
             deletePost: function (post_id) {
                 return $http.post('/api/v1/post/delete/' + post_id)
                     .then(function (result) {
+                        console.log("result from server delete: ",result.data);
                         return result.data[0];
                     })
                     .catch(function(e){
@@ -26,7 +27,7 @@
                 console.log("WTF MATE", newPost)
                 return $http.post('/api/v1/post', newPost)
                     .then(function (result) {
-                        console.log('slksd', result)
+                        console.log('slksd', result);
                         return result.data[0];
                     })
                     .catch(function(e){
@@ -37,7 +38,7 @@
                 newComment.post_id = postId;
                 return $http.post('/api/v1/comments/add/', newComment)
                     .then(function(result) {
-                        console.log('Comment result', result.data[0])
+                        return result.data[0];
                     })
                     .catch(function(e){
                         console.log("error", e)

@@ -1,12 +1,13 @@
 <div class="row">
     <form class="form" ng-submit="createUser()" >
         <div class="form-group" ng-class="{'has-error': addPost.title.$invalid, 'has-success': addPost.title.$valid}">
-            <label for="title">Username</label>
+            <label for="username">Username</label>
             <input name="username" type="text" class="form-control" ng-minlength="4" ng-model="user.username">
         </div>
+        {{user.username}}
         <div class="form-group">
-            <label for="image">Password</label>
-            <input name="image" type="password" class="form-control" ng-model="user.password">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control" ng-model="user.password">
         </div>
         <button type="submit" class="btn btn-default">Create Account</button>
     </form>
