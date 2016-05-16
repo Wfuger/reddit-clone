@@ -7,7 +7,6 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
         });
     console.log(currentUser, "fucking fuck")
     $scope.user = currentUser;
-    console.log($scope.user, "are you fucking cereal?")
     $scope.view = {};
     $scope.posts = [];
     $scope.makeNewComment = {};

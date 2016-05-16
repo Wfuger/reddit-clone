@@ -48,12 +48,6 @@ router.post('/post/:id/vote/:d', function (req, res, next) {
             console.log('vote change');
             res.json(result);
         });
-    //return knex('posts')
-    //    .orderBy('id')
-    //    .then(function (posts) {
-    //        console.log('butt stuff');
-    //        res.json(posts)
-    //    })
 });
 
 router.post('/post', function(req, res, next) {

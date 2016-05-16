@@ -1,6 +1,6 @@
 'use strict';
 const bcrypt = require('bcrypt');
-const password = bcrypt.hashSync('password', 8);
+const password = bcrypt.hashSync('password', 9);
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
