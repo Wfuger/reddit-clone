@@ -5,7 +5,6 @@
         </div>
         <div class="col-sm-9">
             <div class="row">
-
                 <h3>
                     {{post.title}}
                     |
@@ -14,8 +13,8 @@
                     <span ng-class="{'positive':post.votes > 0, 'negative':post.votes < 0}" ng-bind="post.votes"></span>
                 </h3>
                 <p id="author">By:
-                    {{post.author}}</p>
-                <p ng-bind="post.description"></p><button class="btn btn-danger" ng-click="deletePost(post.id)">X</button>
+                    {{post.user_id}}</p>
+                <p ng-bind="post.description"></p><button class="btn btn-danger" ng-show="user.id === post.user_id" ng-click="deletePost(post.id)">X</button>
                 <div class="row">
                     <p>
                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -29,7 +28,7 @@
                     <div ng-show="post.showTheComments" ng-repeat="comment in post.comments" class="row">
                         <p class="push-right" >Author: {{comment.user_id}}</p>
                         <p class="push-right" >Comment: {{comment.comment}}</p>
-                        <button class="btn btn-danger" ng-click="deleteComment(comment.id, post)">X comment</button>
+                        <button class="btn btn-danger" ng-show="user.id === comment.user_id" ng-click="deleteComment(comment.id, post)">X comment</button>
                     </div>
                     <div ng-show="post.newComment" class="row">
                         <form class="form">

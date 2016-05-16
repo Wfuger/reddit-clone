@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, $location
                 currentUser: function ($http, $location) {
                     return $http.get('/api/v1/users/me')
                         .then(function (response) {
-                            console.log("FUASDLKFJAWEKLJFAWELKFJSALKJFD",response);
+                            console.log("FUASDLKFJAWEKLJFAWELKFJSALKJFD", response.data);
                             return response.data
                         })
                         .catch(function (e) {

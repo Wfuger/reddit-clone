@@ -38,7 +38,9 @@
                 var newComment = {};
                 newComment.comment = post.comment;
                 newComment.post_id = post.id;
-                newComment.user_id = post.user_id;
+                newComment.user_id = post.userId;
+                delete post.userId;
+                console.log(newComment, "comment from post service")
                 return $http.post('/api/v1/comments/add/', newComment)
                     .then(function(result) {
                         return result.data[0];

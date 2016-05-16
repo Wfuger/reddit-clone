@@ -5,8 +5,9 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
                 $scope.posts.push(i);
             });
         });
-    console.log("current user",currentUser)
-    $rootScope.user = currentUser;
+    console.log(currentUser, "fucking fuck")
+    $scope.user = currentUser;
+    console.log($scope.user, "are you fucking cereal?")
     $scope.view = {};
     $scope.posts = [];
     $scope.makeNewComment = {};
@@ -26,9 +27,11 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
         $scope.view.createPost = !$scope.view.createPost;
     };
     $scope.post = function () {
+        console.log($scope.user, "fuck this")
+        $scope.newPost.user_id = $scope.user.id;
         postService.addPost($scope.newPost)
             .then(function (newPost) {
-                //console.log("Adding new post to array");
+                newPost.comments = [];
                 $scope.posts.push(newPost);
             });
         $scope.view.createPost = false;
@@ -47,14 +50,16 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
     $scope.addComment = function(post) {
         post.newComment = !post.newComment;
     };
+
     $scope.newComment = function(post) {
-        console.log($rootScope.user.id, "user obj bitch")
-        post.user_id = $rootScope.user.id;
+        console.log($scope.user, "user obj bitch")
+        post.userId = $scope.user.id;
+        console.log(post, 'oh my gerd fuck fuck fuck fuck')
         postService.addComment(post)
             .then(function (newComment) {
                 post.comments.push(newComment);
+                post.comment = null;
             });
-        post.comment = null;
         post.newComment = false;
     };
     $scope.deleteComment = function (id, post) {
