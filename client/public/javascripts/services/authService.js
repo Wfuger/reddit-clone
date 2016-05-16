@@ -10,9 +10,10 @@
             },
 
             responseError: function (response) {
-                if (response.status === 403) {
+                console.log(response)
+                if (response.status === 403 || response.status === 422) {
                     localStorage.clear();
-                    $location.path('/signup');
+                    $location.path('/');
                 }
 
                 return response;

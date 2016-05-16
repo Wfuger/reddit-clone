@@ -5,6 +5,7 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
                 $scope.posts.push(i);
             });
         });
+    console.log("current user",currentUser)
     $rootScope.user = currentUser;
     $scope.view = {};
     $scope.posts = [];
@@ -30,6 +31,8 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
                 //console.log("Adding new post to array");
                 $scope.posts.push(newPost);
             });
+        $scope.view.createPost = false;
+        $scope.newPost = {};
     };
 
     $scope.deletePost = function (post_id) {

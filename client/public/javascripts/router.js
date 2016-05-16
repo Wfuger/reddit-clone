@@ -12,7 +12,8 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, $location
                             console.log("FUASDLKFJAWEKLJFAWELKFJSALKJFD",response);
                             return response.data
                         })
-                        .catch(function () {
+                        .catch(function (e) {
+                            console.log('errrah errah', e)
                             localStorage.clear();
                             $location.path('/');
                             return null;

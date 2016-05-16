@@ -75,15 +75,24 @@ router.get('/users/me', function ( req, res, next ) {
     if ( req.headers.authorization ) {
         var token = req.headers.authorization.split(' ')[1];
         console.log("token: ",token)
-        var payload = jwt.verify(token, process.env.JWT_SECRET);
-        console.log("payload: ",payload)
-        knex('users').where({ id: payload.id }).first().then(function(user){
-            if (user) {
-                res.json({ id: user.id, username: user.username })
-            } else {
-                res.json({ error: 'invalid ID' })
-            }
-        });
+        try {
+            var payload = jwt.verify(token, process.env.JWT_SECRET);
+        } catch (err) {
+            console.log('invalid token', err)
+        }
+        console.log("payload: ", payload)
+        if (payload) {
+            knex('users').where({ id: payload.id }).first().then(function(user){
+                if (user) {
+                    res.json({ id: user.id, username: user.username })
+                } else {
+                    res.json({ error: 'invalid ID' })
+                }
+            });
+        } else {
+            console.log('throw an error')
+            res.status(422).json({ error: 'invalid user'})
+        }
     } else {
         res.json({ error: "No token breh" })
     }
