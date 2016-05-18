@@ -13,7 +13,7 @@
                     <span ng-class="{'positive':post.votes > 0, 'negative':post.votes < 0}" ng-bind="post.votes"></span>
                 </h3>
                 <p id="author">By:
-                    {{post.user_id}}</p>
+                    {{post.username}}</p>
                 <p ng-bind="post.description"></p><button class="btn btn-danger" ng-show="user.id === post.user_id" ng-click="deletePost(post.id)">X</button>
                 <div class="row">
                     <p>
@@ -26,7 +26,7 @@
                         <span ng-click="addComment(post)">Add A Comment</span>
                     </p>
                     <div ng-show="post.showTheComments" ng-repeat="comment in post.comments" class="row">
-                        <p class="push-right" >Author: {{comment.user_id}}</p>
+                        <p class="push-right" >Author: {{comment.username}}</p>
                         <p class="push-right" >Comment: {{comment.comment}}</p>
                         <button class="btn btn-danger" ng-show="user.id === comment.user_id" ng-click="deleteComment(comment.id, post)">X comment</button>
                     </div>

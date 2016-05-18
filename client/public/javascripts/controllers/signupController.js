@@ -6,16 +6,18 @@
                 .then(function(response){
                     $scope.user = {};
                     console.log("user from server", response.data);
-                    $rootScope.user = response.data;
                     $window.localStorage.setItem('token', response.data.token);
                     $location.path('/')
+                    return $rootScope.user = response.data;
                 })
         };
         $scope.loginUser = function () {
-            console.log('woah man idk bout that', $scope.login);
             $http.post('/api/v1/users/login', $scope.login)
                 .then(function (response) {
+                    $window.localStorage.setItem('token', response.data.token);
+                    $location.path('/')
                     console.log(response.data)
+                    return $rootScope.user = response.data
                 })
         }
     })

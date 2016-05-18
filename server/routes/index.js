@@ -8,22 +8,19 @@ var jwt = require('jsonwebtoken');
 
 router.get('/post', function(req, res, next) {
     var result = {};
-    //knex('users')
-    //    .then(function (users) {
-    //        result.users = users;
-    //    });
     knex('posts')
+        .innerJoin('users', 'users.id', 'posts.user_id')
         .then(function(posts) {
+            //console.log(posts, 'posts with users hopefully')
             result.posts = posts;
         });
     return knex('comments')
+        .innerJoin('users', 'users.id', 'comments.user_id')
         .then(function(comments) {
+            //console.log(comments, 'comments with users maybeh')
             for (var i = 0; i < result.posts.length; ++i) {
                 result.posts[i].comments = [];
                 for (var j = 0; j < comments.length; ++j) {
-                    //for (var k = 0; k < result.users; ++k) {
-                    //    if()
-                    //}
                     if (result.posts[i].id === comments[j].post_id) result.posts[i].comments.push(comments[j])
                 }
             }
@@ -41,11 +38,12 @@ router.post('/post/delete/:id', function (req, res, next) {
 });
 
 router.post('/post/:id/vote/:d', function (req, res, next) {
+    console.log(req.body, 'votes')
     var votes = req.body.votes;
     req.params.d === 'up' ? ++votes : --votes;
     return knex('posts').where({id: req.params.id}).update({votes: votes}).returning('*')
         .then(function (result) {
-            console.log('vote change');
+            console.log('vote change', result);
             res.json(result);
         });
 });
@@ -58,7 +56,6 @@ router.post('/post', function(req, res, next) {
 });
 
 router.post('/comments/add/', function (req, res, next) {
-    console.log(req.body)
     return knex('comments').insert(req.body).returning('*')
         .then(function (comment) {
             console.log("comment: ",comment);

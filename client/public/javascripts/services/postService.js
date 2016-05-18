@@ -27,6 +27,7 @@
                 console.log("WTF MATE", newPost)
                 return $http.post('/api/v1/post', newPost)
                     .then(function (result) {
+                        result.data[0].comments = [];
                         console.log('slksd', result);
                         return result.data[0];
                     })
@@ -62,6 +63,7 @@
                 if (d === 'up') {
                     return $http.post('/api/v1/post/' + post.id + '/vote/up', post)
                         .then(function(result) {
+                            console.log(result, 'result')
                             return result.data[0];
                         })
                         .catch(function(e){
@@ -70,6 +72,7 @@
                 } else {
                     return $http.post('/api/v1/post/' + post.id + '/vote/down', post)
                         .then(function(result) {
+                            console.log(result, 'result')
                             return result.data[0];
                         })
                         .catch(function(e){

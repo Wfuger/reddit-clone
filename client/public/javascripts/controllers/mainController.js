@@ -5,8 +5,8 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
                 $scope.posts.push(i);
             });
         });
-    console.log(currentUser, "fucking fuck")
-    $scope.user = currentUser;
+    //console.log(currentUser, "you fucking duck");
+    $rootScope.user = currentUser;
     $scope.view = {};
     $scope.posts = [];
     $scope.makeNewComment = {};
@@ -26,11 +26,9 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
         $scope.view.createPost = !$scope.view.createPost;
     };
     $scope.post = function () {
-        console.log($scope.user, "fuck this")
         $scope.newPost.user_id = $scope.user.id;
         postService.addPost($scope.newPost)
-            .then(function (newPost) {
-                newPost.comments = [];
+                .then(function (newPost) {
                 $scope.posts.push(newPost);
             });
         $scope.view.createPost = false;
@@ -51,9 +49,11 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
     };
 
     $scope.newComment = function(post) {
+        console.log(post, 'post you punk bitch')
         console.log($scope.user, "user obj bitch")
         post.userId = $scope.user.id;
-        console.log(post, 'oh my gerd fuck fuck fuck fuck')
+        post.username = $rootScope.username;
+        console.log(post, 'oh my gerd fuck fuckity fuck fuck');
         postService.addComment(post)
             .then(function (newComment) {
                 post.comments.push(newComment);
@@ -76,6 +76,7 @@ app.controller('mainController', function($scope, postService, currentUser, $roo
     $scope.vote = function(vote, post) {
         postService.vote(vote, post)
             .then(function (result) {
+                console.log(result)
                 for (var i = 0; i < $scope.posts.length; i++) {
                     if ($scope.posts[i].id === result.id) {
                         var comments = $scope.posts[i].comments;
