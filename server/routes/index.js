@@ -9,9 +9,11 @@ var jwt = require('jsonwebtoken');
 router.get('/post', function(req, res, next) {
     var result = {};
     knex('posts')
-        .innerJoin('users', 'users.id', 'posts.user_id')
+        .select('posts.*', 'users.username')
+        .leftJoin('users', 'users.id', 'posts.user_id')
         .then(function(posts) {
-            //console.log(posts, 'posts with users hopefully')
+            delete posts.password_hash;
+            console.log(posts, 'posts with users hopefully')
             result.posts = posts;
         });
     return knex('comments')
@@ -69,5 +71,11 @@ router.post('/comments/delete/:id', function (req, res, next) {
             res.json(comment)
         })
 });
+
+//function getUsers(req, res, next){
+//    var result = {}
+//    knex('users')
+//        .joinRAW
+//}
 
 module.exports = router;
