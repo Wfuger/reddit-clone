@@ -17,9 +17,10 @@ router.get('/post', function(req, res, next) {
             result.posts = posts;
         });
     return knex('comments')
+        .select('comments.*', 'users.username')
         .innerJoin('users', 'users.id', 'comments.user_id')
         .then(function(comments) {
-            //console.log(comments, 'comments with users maybeh')
+            console.log(comments, 'comments with users maybeh')
             for (var i = 0; i < result.posts.length; ++i) {
                 result.posts[i].comments = [];
                 for (var j = 0; j < comments.length; ++j) {
